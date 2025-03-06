@@ -1,0 +1,83 @@
+@media only screen and (max-width: 991px) {
+    .heading-login {
+        text-align: center;
+    }
+
+    .sub-heading-login {
+        text-align: center;
+    }
+
+    .inventory_table_container {
+        overflow-x: auto;
+    }
+}
+
+@media only screen and (max-width:414px) {
+    .radio-inline2 {
+        margin-left: 3px !important;
+    }
+
+    .bg-login {
+        padding: 10px;
+    }
+
+    .sack-table thead {
+        font-size: 12px;
+    }
+
+    .sack-table tbody {
+        font-size: 10px;
+    }
+
+}
+
+@media only screen and (max-width:500px) {
+    .zedge_logo {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .user-name {
+        font-size: 11px;
+    }
+
+    .position {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .heading-login {
+        font-size: 35px;
+    }
+
+    .sub-heading-login {
+        font-size: 20px;
+    }
+
+    .col-dash {
+        width: 100%;
+    }
+
+    .product-tab {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width:600px) and (max-width: 1170px) {
+    .col-dash {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1171px) and (max-width: 1500px) {
+    .col-dash {
+        width: 33.33%;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .col-dash {
+        width: 25%;
+    }
+}
