@@ -18,36 +18,7 @@ const Invoice = ({ data }) => {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     const path = data?.logo.split('\\')
     const imgPath = `http://localhost:3000/api/images/${path[path.length - 1]}`
-    // const downloadInvoiceAsPDF = async () => {
-    //     const element = document.getElementById('invoice');
 
-    //     // Use html2canvas to take a screenshot of the invoice element
-    //     const canvas = await html2canvas(element, { scale: 2 }); // Increase scale for better resolution
-    //     const imgData = canvas.toDataURL('image/png');
-
-    //     const pdf = new jsPDF('l', 'mm', 'a4'); // Changed to A4 size, mm unit for better fit
-    //     const imgWidth = 300; // Width of A4 page in mm
-    //     const pageHeight = pdf.internal.pageSize.height;
-    //     const imgHeight = (canvas.height * imgWidth) / canvas.width;
-    //     let heightLeft = imgHeight;
-
-    //     let position = 0;
-
-    //     // Add the first page
-    //     pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight); // Set X position to 0 for full width
-    //     heightLeft -= pageHeight;
-
-    //     // Add more pages if needed
-    //     while (heightLeft >= 0) {
-    //         position = heightLeft - imgHeight;
-    //         pdf.addPage();
-    //         pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
-    //         heightLeft -= pageHeight;
-    //     }
-
-    //     // Save the PDF
-    //     pdf.save(`${data?.user_name}_${data?.transaction_id}.pdf`);
-    // };
     const downloadInvoiceAsPDF = async () => {
         const element = document.getElementById('invoice');
 
@@ -137,7 +108,6 @@ const Invoice = ({ data }) => {
             </div>
             <div className="invoice-container bg-white p-4 border border-dark mt-3" id="invoice">
                 <div className="text-center mb-4">
-                    {/* <img width={100} height={50} src={`${baseUrl}/${data?.logo}`} /> */}
                     <img width={100} height={50} src={imgPath} />
                     <h1 className="display-6 fw-bold">{data?.user_name}</h1>
                     <p className="mb-0">{data?.user_address}</p>

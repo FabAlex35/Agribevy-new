@@ -80,5 +80,6 @@ export const config = {
     matcher: [
         "/",
         "/api/(.*)",
+        "/portal/(.*)",
     ],
 };
