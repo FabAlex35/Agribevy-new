@@ -29,7 +29,7 @@ export async function middleware(req) {
     
     let accessToken = req.headers.get("Authorization")?.split(" ")[1] || "";
     let refreshToken = req.headers.get("x-token")?.split(" ")[1] || "";
-console.log(accessToken,refreshToken,'***********************');
+console.log(accessToken,refreshToken,'middleware-token');
 
     if(url.pathname === "/"){
         // if (!accessToken || !refreshToken) {
@@ -41,7 +41,7 @@ console.log(accessToken,refreshToken,'***********************');
     
     const accessValid = await verifyToken(accessToken, SECRET_KEY);
     const refreshValid = await verifyToken(refreshToken, REFRESH_SECRET_KEY);
-    console.log(accessValid,refreshValid,'***********************');
+    console.log(accessValid,refreshValid,'middleware-valid');
     if (accessValid.exp < currentTime) {
         if (refreshValid.exp < currentTime) {
             return NextResponse.redirect(new URL("/", req.url));
