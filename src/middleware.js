@@ -29,6 +29,7 @@ export async function middleware(req) {
     
     let accessToken = req.headers.get("Authorization")?.split(" ")[1] || "";
     let refreshToken = req.headers.get("x-token")?.split(" ")[1] || "";
+console.log(accessToken,refreshToken,'***********************');
 
     if(url.pathname === "/"){
         // if (!accessToken || !refreshToken) {
