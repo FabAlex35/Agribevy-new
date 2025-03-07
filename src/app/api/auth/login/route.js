@@ -73,7 +73,7 @@ export async function POST(req) {
         const accessToken = await generateToken(user, subs);
         const refreshToken = await generateRefreshToken(user, subs);
 
-        // console.log(accessToken,'***********',refreshToken,'1111111111111111');
+        console.log(accessToken,'***********',refreshToken,'1111111111111111');
 
         const response = NextResponse.json({
             message: "Successfully logged in",
