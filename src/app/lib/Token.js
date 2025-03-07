@@ -2,8 +2,8 @@ import { SignJWT, jwtVerify } from "jose";
 
 const SECRET_KEY = new TextEncoder().encode(process.env.JWT_SECRET_KEY);
 const REFRESH_SECRET_KEY = new TextEncoder().encode(process.env.JWT_REFRESH_SECRET_KEY);
-const validUpto = process.env.JWT_EXPIRATION;
-const refreshTokenExpiry = process.env.JWT_REFRESH_EXPIRATION;
+const validUpto = process.env.JWT_EXPIRATION || "1d";
+const refreshTokenExpiry = process.env.JWT_REFRESH_EXPIRATION || "10d";
 
 // Generate Access Token (Sent in Headers)
 export async function generateToken(user, subs, secretKey = SECRET_KEY, expirationTime = validUpto) {

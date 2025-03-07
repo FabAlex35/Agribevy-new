@@ -3,9 +3,6 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 const apiClient = axios.create({
     baseURL: baseUrl,
-    headers: {
-        "Content-Type": "application/json"
-    },
     withCredentials: true,
 });
 
@@ -13,10 +10,15 @@ apiClient.interceptors.request.use(
     async (config) => {
         const accessToken = localStorage.getItem("accessToken");
         const refreshToken = localStorage.getItem("refreshToken");
-console.log(accessToken,refreshToken,'*********************');
 
         config.headers["Authorization"] = `Bearer ${accessToken}`;
         config.headers["x-token"] = `Bearer ${refreshToken}`;
+
+        if (config.data instanceof FormData) {
+            config.headers["Content-Type"] = "multipart/form-data";
+        } else {
+            config.headers["Content-Type"] = "application/json";
+        }
        
         return config;
     },
@@ -45,7 +47,6 @@ apiClient.interceptors.response.use(
                         return axios(error.config);
                     }
                 } catch (refreshError) {
-                    console.error("Token refresh failed:", refreshError);
                     localStorage.clear();
                     window.location.href = "/";
                 }

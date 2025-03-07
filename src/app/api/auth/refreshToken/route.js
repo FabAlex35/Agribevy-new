@@ -3,8 +3,8 @@ import { NextResponse } from 'next/server';
 
 const REFRESH_SECRET_KEY = process.env.JWT_REFRESH_SECRET_KEY;
 const SECRET_KEY = process.env.JWT_SECRET_KEY;
-const validUpto = process.env.JWT_EXPIRATION;
-const refreshTokenExpiry = process.env.JWT_REFRESH_EXPIRATION;
+const validUpto = process.env.JWT_EXPIRATION || "1d";
+const refreshTokenExpiry = process.env.JWT_REFRESH_EXPIRATION || "10d";
 
 export async function POST(req) {
     try {
