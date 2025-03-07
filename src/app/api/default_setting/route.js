@@ -6,7 +6,9 @@ import path from "path";
 import { writeFile } from "fs/promises";
 
 export async function POST(req) {
-    try {
+    console.log(req.headers.get("Authorizaton"),'***********');
+    
+    try {        
         const authHeader = req.headers.get("Authorization");
         const accessToken = authHeader?.split(" ")[1];
         const decoded = JSON.parse(Buffer.from(accessToken.split(".")[1], "base64").toString());

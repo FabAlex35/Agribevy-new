@@ -5,9 +5,9 @@ const SECRET_KEY = new TextEncoder().encode(process.env.JWT_SECRET_KEY);
 const REFRESH_SECRET_KEY = new TextEncoder().encode(process.env.JWT_REFRESH_SECRET_KEY);
 
 // Utility function to verify JWT and return decoded payload
-async function verifyToken(token, secretKey) {
+async function verifyToken(token) {
     try {
-        const decoded = await jwtVerify(token, secretKey);
+        const decoded = await jwtVerify(token, SECRET_KEY);
         return decoded.payload;
     } catch (error) {
         return null;
