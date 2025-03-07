@@ -427,65 +427,14 @@ const FarmerDetails = ({ params }) => {
                                     <div className="p-2 overview_container ">
                                         {/* <div className="row g-4"> */}
                                         {details?.length > 0 ?
-                                            // <>
-                                            //     {details
-                                            //         .sort((a, b) => (new Date(b?.soldDate) - new Date(a?.soldDate)))
-                                            //         .map(transaction => {
-                                            //             const path = transaction.image.split('\\')
-                                            //             const ImageURL = `http://localhost:3000/api/images/${path[path.length - 1]}`
-                                            //             return (
-                                            //                 <div className="col-md-6 col-lg-4" key={transaction.id}>
-                                            //                     <div className="card border rounded-lg p-4 hover-shadow transition-shadow postion-relative">
-                                            //                         {(multiple && (transaction?.farmer_status !== "paid" && transaction?.soldDate)) ?
-                                            //                             <input className='payment-badge p-1' type='checkbox' onChange={(e) => addId(e, transaction?.transaction_id, transaction)} />
-                                            //                             :
-                                            //                             <span className={`badge payment-badge ${transaction?.farmer_status === "paid" ? 'bg-success' : 'bg-danger'}`}>
-                                            //                                 {transaction?.farmer_status === "paid" ? 'Paid' : 'Unpaid'}
-                                            //                             </span>}
-                                            //                         <span className={`badge pay-date ${transaction?.soldDate ? 'bg-success' : 'bg-secondary'}`}>
-                                            //                             {transaction?.soldDate ? 'Sold' : 'In Stock'}
-                                            //                         </span>
-                                            //                         {/* Main Content */}
-                                            //                         <div className="d-flex gap-4">
-                                            //                             <img
-                                            //                                 src={ImageURL}
-                                            //                                 alt={transaction?.veg_name}
-                                            //                                 className="img-fluid uniform-image rounded object-cover"
-                                            //                             />
-                                            //                             <div>
-                                            //                                 <h3 className="fw-bold h6 mb-2">{transaction?.veg_name}</h3>
-                                            //                                 <p className="text-muted mb-2">{transaction?.sold} kg</p>
-                                            //                                 <p className="primary-color fw-bold mb-2">
-                                            //                                     ₹{transaction?.farmer_amount}
-                                            //                                 </p>
-                                            //                             </div>
-                                            //                         </div>
-
-                                            //                         <div className="mt-3 pt-3 border-top d-flex justify-content-between align-items-center">
-                                            //                             <div className="small text-muted col-5 ">
-                                            //                                 <p className="mb-1"><GrDeliver />: {formatDate(transaction?.purchasedDate)}</p>
-                                            //                                 {transaction?.soldDate &&
-                                            //                                     <p className="mb-0"><TbTransactionRupee />: {formatDate(transaction?.soldDate)}</p>}
-                                            //                             </div>
-
-                                            //                             {(transaction?.farmer_status !== "paid" && transaction?.soldDate) &&
-                                            //                                 <button className='primary-bg-color text-white pay-buyer col-5' onClick={() => openPayment(transaction)}>Pay Now</button>}
-
-                                            //                         </div>
-
-                                            //                     </div>
-                                            //                 </div>
-                                            //             )
-                                            //         })}
-                                            // </>
-
+                                            
                                             <>
                                                 <div className="row g-4">
                                                     {details
                                                         .sort((a, b) => new Date(b?.soldDate) - new Date(a?.soldDate))
                                                         .map(transaction => {
                                                             const path = transaction.image.split('\\');
-                                                            const ImageURL = `http://localhost:3000/api/images/${path[path.length - 1]}`;
+                                                            const ImageURL = `${baseUrl}/api/images/${path[path.length - 1]}`;
                                                             return (
                                                                 <div className="col-sm-12 col-md-6 col-lg-4 mb-4" key={transaction.id}>
                                                                     <div className="card border rounded-lg p-4 hover-shadow transition-shadow position-relative h-100">

@@ -410,7 +410,7 @@ console.log(final);
                                             <div className="row">
                                                 {inventoryData?.map((v, i) => {
                                                     const path = v.image.split('\\');
-                                                    const ImageURL = `http://localhost:3000/api/images/${path[path.length - 1]}`;
+                                                    const ImageURL = `${baseUrl}/api/images/${path[path.length - 1]}`;
 
                                                     return (
                                                         <div key={i} className="col-dash">

@@ -19,6 +19,7 @@ const formatDate = (dateString) => {
 };
 
 const MultiFarmer = ({ data }) => {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     const [errMsg, setErrMsg] = useState(null)
     const [successMsg, setSuccessMsg] = useState(null)
     const [paymentAmount, setPaymentAmount] = useState('');
@@ -30,9 +31,7 @@ const MultiFarmer = ({ data }) => {
     const [error, setError] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const path = data?.detail.logo.split('\\')
-    const imgPath = `http://localhost:3000/api/images/${path[path.length - 1]}`
-
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    const imgPath = `${baseUrl}/api/images/${path[path.length - 1]}`
 
     const downloadInvoiceAsPDF = async () => {
         const element = document.getElementById('invoice');

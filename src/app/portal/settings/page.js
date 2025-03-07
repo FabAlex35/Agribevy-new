@@ -152,7 +152,7 @@ const Settings = () => {
         if (response?.status === 200) {
             setSettingsData(response?.data)
             const path = response?.data.logo.split('\\')
-            const ImageURL = `http://localhost:3000/api/images/${path[path.length - 1]}`
+            const ImageURL = `${baseUrl}/api/images/${path[path.length - 1]}`
             setImgPath(ImageURL)
             setEdit(false)
             setLoading(false)

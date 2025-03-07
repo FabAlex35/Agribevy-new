@@ -17,7 +17,7 @@ const formatDate = (dateString) => {
 const Invoice = ({ data }) => {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     const path = data?.logo.split('\\')
-    const imgPath = `http://localhost:3000/api/images/${path[path.length - 1]}`
+    const imgPath = `${baseUrl}/api/images/${path[path.length - 1]}`
 
     const downloadInvoiceAsPDF = async () => {
         const element = document.getElementById('invoice');

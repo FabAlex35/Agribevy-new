@@ -398,8 +398,6 @@ const BuyerDetails = ({ params }) => {
                                                     {details
                                                         .sort((a, b) => (new Date(b?.soldDate) - new Date(a?.soldDate)))
                                                         .map(transaction => {
-                                                            // const path = transaction?.image?.split('\\')
-                                                            // const ImageURL = `http://localhost:3000/api/images/${path[path?.length - 1]}`
                                                             return (
                                                                 <div className="col-sm-12 col-md-6 col-lg-4 mb-4" key={transaction.id}>
                                                                     <div className="card border rounded-lg p-4 hover-shadow transition-shadow postion-relative h-100">

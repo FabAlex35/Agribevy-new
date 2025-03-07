@@ -19,7 +19,7 @@ const formatDate = (dateString) => {
 };
 
 const MultiInvoice = ({ data, getInvoice, language }) => {
-
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     const [errMsg, setErrMsg] = useState(null)
     const [successMsg, setSuccessMsg] = useState(null)
     const [paymentAmount, setPaymentAmount] = useState(data?.detail?.total_farmer_amount);
@@ -28,8 +28,8 @@ const MultiInvoice = ({ data, getInvoice, language }) => {
     const [error, setError] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
     const path = data?.detail.logo.split('\\')
-    const imgPath = `http://localhost:3000/api/images/${path[path.length - 1]}`
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
+    const imgPath = `${baseUrl}/api/images/${path[path.length - 1]}`
+    
     const [transactionType, setTransactionType] = useState("fullpayment")
 
     const handlePayment = (e) => {

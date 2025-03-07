@@ -15,7 +15,9 @@ import DataTable from 'react-data-table-component';
 import addNotoSansTamilFont from "@/src/Components/MyFont"
 import { useRouter } from "next/navigation";
 import ModalBoxError from "@/src/Components/ModalBoxError";
+
 const Accounts = () => {
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     const user = useSelector((state) => state?.user?.userDetails);
     const language = useSelector((state) => state?.user?.language)
     const app_language = useSelector((state) => state?.user?.app_language)
@@ -116,7 +118,7 @@ const Accounts = () => {
 
         // Extract the image path for the logo
         const path = userDetails.logo.split('\\');
-        const ImageURL = `http://localhost:3000/api/images/${path[path.length - 1]}`;
+        const ImageURL = `${baseUrl}/api/images/${path[path.length - 1]}`;
 
         // Load the logo image (you can use an asynchronous method if needed)
         const img = new Image();
@@ -253,7 +255,7 @@ const Accounts = () => {
 
         // Extract the image path for the logo
         const path = userDetails.logo.split('\\');
-        const ImageURL = `http://localhost:3000/api/images/${path[path.length - 1]}`;
+        const ImageURL = `${baseUrl}/api/images/${path[path.length - 1]}`;
 
         // Load the logo image (you can use an asynchronous method if needed)
         const img = new Image();
