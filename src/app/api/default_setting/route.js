@@ -116,6 +116,7 @@ export async function POST(req) {
 
 
 export async function GET(req) {
+    console.log(req.headers.get("Authorization"),'dashboard');
     try {
         const authHeader = req.headers.get("Authorization");
         const accessToken = authHeader?.split(" ")[1];
