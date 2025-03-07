@@ -23,7 +23,7 @@ export default function Home() {
       console.log(response,'////////////////////////////////');
       
       localStorage.setItem("accessToken", response?.data?.accessToken);
-      localStorage.setItem("refershToken", response?.data?.refershToken);
+      localStorage.setItem("refreshToken", response?.data?.refreshToken);
       localStorage.setItem("role", response?.data?.role);
 
       if (response?.data?.role === "marketer") {
