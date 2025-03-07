@@ -159,8 +159,8 @@ export async function GET(req) {
 
 
 export async function PUT(req) {
+    const authHeader = req.headers.get("Authorization");
     try {
-        const authHeader = req.headers.get("Authorization");
         const accessToken = authHeader?.split(" ")[1];
         const decoded = JSON.parse(Buffer.from(accessToken.split(".")[1], "base64").toString());
 
