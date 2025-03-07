@@ -41,7 +41,7 @@ console.log(accessToken,refreshToken,'***********************');
     
     const accessValid = await verifyToken(accessToken, SECRET_KEY);
     const refreshValid = await verifyToken(refreshToken, REFRESH_SECRET_KEY);
-
+    console.log(accessValid,refreshValid,'***********************');
     if (accessValid.exp < currentTime) {
         if (refreshValid.exp < currentTime) {
             return NextResponse.redirect(new URL("/", req.url));
