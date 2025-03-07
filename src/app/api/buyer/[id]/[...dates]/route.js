@@ -3,46 +3,6 @@ export const dynamic = "force-dynamic";
 import { querys } from "@/src/app/lib/DbConnection";
 import { NextResponse } from "next/server";
 
-// This function generates the static parameters for the dynamic route
-export async function generateStaticParams() {
-    try {
-        // Fetch all buyers (or specific mobile numbers)
-        const buyers = await querys({
-            query: `SELECT DISTINCT buyer_mobile FROM transactions`
-        });
-
-        const allParams = [];
-
-        // Loop through each buyer
-        for (const buyer of buyers) {
-            const mobile = buyer.buyer_mobile;
-
-            // Fetch available date ranges for the buyer
-            const dateRanges = await querys({
-                query: `SELECT DISTINCT created_at FROM transactions WHERE buyer_mobile = ?`,
-                values: [mobile]
-            });
-
-            // Add each combination of mobile and date ranges
-            for (const date of dateRanges) {
-                const startDate = date.created_at;  // Assuming you want to fetch start and end dates from the transaction date
-                const endDate = new Date(startDate);
-                endDate.setDate(endDate.getDate() + 1); // Example: Just one day ahead, adjust as needed
-
-                allParams.push({
-                    id: mobile.toString(), // Add buyer mobile
-                    dates: [startDate.toISOString(), endDate.toISOString()] // Date range (example: start and end)
-                });
-            }
-        }
-
-        // Return static paths for all combinations of buyer mobile and date ranges
-        return allParams;
-    } catch (error) {
-        console.error('Error generating static params:', error);
-        return [];
-    }
-}
 
 export async function GET(req) {
     try {
