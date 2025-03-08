@@ -23,6 +23,10 @@ export async function middleware(req) {
         return NextResponse.next();
     }
 
+    if (url.pathname.startsWith("/api/images/")) {
+        return NextResponse.next();
+    }
+
     if (url.pathname === "/api/auth/login" || url.pathname === "/api/auth/logout") {
         return NextResponse.next();
     }    
